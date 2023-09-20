@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-
     <title>Accessibility assessment</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
@@ -23,11 +22,19 @@
         <li><a href="#">Blog</a></li>
       </ul>
 
-      <form class="search">
-        <input type="search" name="q" placeholder="Search query">
-        <input type="submit" value="SEARCH">
+      <form class="search" role="search-site" aria-label="search-site">
+        <input 
+        type="search-site"
+       aria-description="search results will appear below"
+       id="search-site"
+       value="SEARCH HERE" />
+       
+        <input type="submit" value="SEARCH" aria-description="search results will appear below"
+        id="search">
       </form>
     </div>
+
+    
 
     <main>
      <article>
