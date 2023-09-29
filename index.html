@@ -15,30 +15,36 @@
   <body>
 
     <div class="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our team</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Our team</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </nav>
+      <!-- You'll want to wrap a list of links with <nav> to show screenreaders that this is a navigation list -->
 
       <form class="search">
-        <label for="search" aria-label="search-site"></label>
+        <label for="search">Search</label> <!-- Option 1 -->
         <input 
             type="search"
-            aria-description="search results will appear below"
+            aria-label="search" 
             id="search"
-            value="SEARCH HERE" />
+            value="SEARCH HERE" /> <!-- Option 2 -->
       </form>
+      <!-- If you'd rather not show the label (option 1), you would want to add the aria-label to the <input> and completely omit the label (option 2) -->
+
     </div>
 
     
 
     <main>
      <article>
-        <H1>Welcome to our wildlife website</H1>
-        <H2>The trouble with Bears</H2>
-        <P>By Evan Wild</P>
+        <h1>Welcome to our wildlife website</h1>
+        <h2>The trouble with Bears</h2>
+        <p>By Evan Wild</p>
+        <!-- not a big problem, but it's best practice to leave your element tags lowercase -->
         
         <p>Tall, lumbering, angry, dangerous. The real live bears of this world are proud, independent creatures, self-serving and always on the hunt for food. Nothing like the bears you see on TV, like Baloo from renowned documentary, The Jungle Book.</p>
         
@@ -49,20 +55,22 @@
         
       <p> Bears can also be classified in terms of their habitat — both large and medium bears are just as at home in urban areas as they are in the countryside. Different habitats encourange different behaviour however, as you'll find out below. The below table also gives you some useful facts about bears.</p>
     
-        <table>
+        <table summary="Types of Bear"> <!-- Option 1: You can add a summary="" attribute to describe the table. -->
+          <caption>Types of Bear</caption> <!-- Option 2: adding a caption will also work -->
           <thead>
             <tr>
-              <th>Bear Type</th>
-              <th>Coat</th>
-              <th>Adult size</th>
-              <th>Habitat</th>
-              <th>Lifespan</th>
-              <th>Diet</th>
+              <th scope="col">Bear Type</th>
+              <th scope="col">Coat</th>
+              <th scope="col">Adult size</th>
+              <th scope="col">Habitat</th>
+              <th scope="col">Lifespan</th>
+              <th scope="col">Diet</th>
+              <!-- Adding the scope="col" attribute tells screen readers that this table header is heading a column -->
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Wild</td>
+              <th scope="row">Wild</th> <!-- These are table headings for the row, so we want to make them <th> elements, and add the scope="row" attribute to let screen readers know this is a row header. -->
               <td>Brown or black</td>
               <td>1.4 to 2.8 meters</td>
               <td>Woods and forests</td>
@@ -70,7 +78,7 @@
               <td>Fish, meat, plants</td>
             </tr>
             <tr>
-              <td>Urban</td>
+              <th scope="row">Urban</th>
               <td>North Face</td>
               <td>18 to 22</td>
               <td>Condos and coffee shops</td>
@@ -87,7 +95,7 @@
         <p>Urban (gentrified) bears on the other hand have largely abandoned the old ways. They will hunt other urban creatures if necessary (including other predators like rats and foxes), but prefer to scavenge from readily available urban food outlets like dumpsters, bins, and fast food joints. When food has proven scarce, urban bears have even been known to break into people's kitchens and steal essentials like baked beans, ready meals, and microwave ovens.</p>
         
   
-        <img src="media/urban-bear.jpg"alt="Black and white Grizzly Bear in the cage">
+        <img src="media/urban-bear.jpg" alt="Black and white Grizzly Bear in the cage">
        <p>  Urban bears will sleep anywhere they can, from bus shelters and parks, to the toilets in McDonalds, to their own apartment.</p>
       
       <h2>Mating rituals</h2>
@@ -99,20 +107,22 @@
         <audio controls>
           <source src="media/bear.mp3" type="audio/mp3">
           <source src="media/bear.ogg" type="audio/ogg">
-          <p>It looks like your browser doesn't support HTML5 audio players.</p>
+          <p>It looks like your browser doesn't support HTML5 audio players.</p> <!-- how could you allow users who's browser can't support the audio file to listen to it? -->
         </audio>
+        <!-- Here you had the opportunity to add a transcript of the audio file -->
 
         <aside>
 
-         <h3>About the author</h3>
-        <br><br>
-          Evan Wild is an unemployed plumber from Doncaster, who has been really "in to" wildlife since childhood. He once went to Chester Zoo on holiday, but got ill after eating a doner kebab.
-        <br><br>
-          He has never seen a bear, but once read a Daily Mail article about them, and thinks they sound cool.
+        <h3>About the author</h3>
+        
+        <p>Evan Wild is an unemployed plumber from Doncaster, who has been really "in to" wildlife since childhood. He once went to Chester Zoo on holiday, but got ill after eating a doner kebab.</p>
+
+        <p>He has never seen a bear, but once read a Daily Mail article about them, and thinks they sound cool.</p>
+        
 
         </aside>
         <section class="comments">
-          <h4 class="show-hide">Show comments</h4>
+          <button class="show-hide">Show comments</button> <!-- this element isn't tabbable, you could have changed it to a button or added a tabindex to show it is interactive. -->
 
           <div class="comment-wrapper">
 
@@ -153,13 +163,15 @@
       <div class="secondary">
         <h4>Related</h4>
 
-        <ul>
-          <li><a href="#">The trouble with Bees</a></li>
-          <li><a href="#">The trouble with Otters</a></li>
-          <li><a href="#">The trouble with Penguins</a></li>
-          <li><a href="#">The trouble with Octopi</a></li>
-          <li><a href="#">The trouble with Lemurs</a></li>
-        </ul>
+        <nav>
+          <ul>
+            <li><a href="#">The trouble with Bees</a></li>
+            <li><a href="#">The trouble with Otters</a></li>
+            <li><a href="#">The trouble with Penguins</a></li>
+            <li><a href="#">The trouble with Octopi</a></li>
+            <li><a href="#">The trouble with Lemurs</a></li>
+          </ul>
+        </nav>
       </div>
     </main>
 
